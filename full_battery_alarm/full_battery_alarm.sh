@@ -15,4 +15,3 @@ while true
         sleep 300
     done
 
-# https://askubuntu.com/questions/1157608/how-do-i-set-battery-full-alert-tone-in-ubuntu-18-04-to-save-battery-wear-out/1358853?noredirect=1#comment2380183_1358853

@@ -1,0 +1,59 @@
+snippet tornado 
+
+from tornado.web import Application, RequestHandler, url
+from tornado.ioloop import IOLoop
+from tornado.options import parse_command_line
+
+
+class ${1:FooHandler}(RequestHandler):
+    def ${2:get}(self):
+        self.write('${3:Hello Foo}')
+
+
+class ${4:App}(Application):
+    def __init__(self):
+        ${5:handlers} = [
+            url('/', ${7:$1}, name='foo'),
+        ]
+        ${9:settings} = dict(
+            debug=${10:True},
+        )
+        super().__init__(${11:$5}, **${12:$9})
+
+
+if __name__ == '__main__':
+    parse_command_line()
+    ${13:$4}().listen(${14:8001})
+    IOLoop.current().start()
+
+endsnippet
+
+snippet tornget
+class ${1:FooHandler}(${2:BaseHandler}):
+    def get(self, *args, **kwargs):
+        pass
+
+
+endsnippet
+
+snippet tornpost
+class ${1:FooHandler}(${2:BaseHandler}):
+    def post(self, *args, **kwargs):
+        pass
+
+
+endsnippet
+
+snippet tornapp
+class ${1:App}(${2:Application}):
+    def __init__(self):
+        ${3:handlers} = [
+            # endpoints
+        ]
+        ${4:settings} = dict(
+            # settings
+        )
+        super().__init__(${5:$3}, **${6:$4})
+
+
+endsnippet
